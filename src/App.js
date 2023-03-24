@@ -62,7 +62,7 @@ const App = () => {
           Use Large Images
         </label>
         <hr />
-        <List imageSize={imageSize} />
+        <List />
       </SizeContext.Provider>
     </>
   )
@@ -70,15 +70,15 @@ const App = () => {
 
 const List = ({ imageSize }) => {
 
-  const listItems = places.map(place => <li key={place.id} ><Place place={place} imageSize={imageSize} /></li>);
+  const listItems = places.map(place => <li key={place.id} ><Place place={place} /></li>);
 
   return <ul>{listItems}</ul>;
 };
 
-const Place = ({ place, imageSize }) => {
+const Place = ({ place }) => {
   return (
     <>
-      <PlaceImage place={place} imageSize={imageSize} />
+      <PlaceImage place={place} />
       <p>
         <b>{place.name}</b>
         {': ' + place.description}
@@ -87,7 +87,7 @@ const Place = ({ place, imageSize }) => {
   );
 }
 
-const PlaceImage = ({ place, imageSize }) => {
+const PlaceImage = ({ place }) => {
 
   const size = useContext(SizeContext);
 

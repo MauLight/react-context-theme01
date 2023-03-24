@@ -14,4 +14,9 @@ code {
 
 .fancy {
   border: 1px tomato dashed;
+  padding-left: 10px;
+}
+
+Section {
+  padding: 10px;
 }

@@ -1,23 +1,41 @@
-import { useState } from 'react';
+//import { useState } from 'react';
 import './App.css';
+import Heading from './components/Heading';
+import { Section } from './components/Section';
 
-function App() {
-
-  const [darkTheme, setDarkTheme] = useState(true);
-
-  function toggleTheme() {
-    setDarkTheme(prevDarkTheme => !prevDarkTheme);
-  };
+export default function ProfilePage() {
 
   return (
-    <>
-    <ThemeContext.Provider value={darkTheme}>
-      <button onClick={toggleTheme}>Toggle Theme</button>
-      <FunctionContextComponent />
-      <ClassContextComponent />
-    </ThemeContext.Provider>
-    </>
+    <Section>
+      <Heading>My Profile</Heading>
+      <Post
+        title="Hello traveller!"
+        body="Read about my adventures."
+      />
+      <AllPosts />
+    </Section>
   );
 }
 
-export default App;
+const AllPosts = () => {
+  return (
+    <Section>
+      <Heading>Recent Posts</Heading>
+      <Post
+        title="Flavors of Lisbon"
+        body=" I loved it!"
+      />
+    </Section>
+  );
+}
+
+const Post = ({ title, body }) => {
+  return (
+    <Section isFancy={true}>
+      <Heading>{title}</Heading>
+      <p><i>{body}</i></p>
+    </Section>
+  );
+}
+
+
